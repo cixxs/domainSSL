@@ -1,10 +1,10 @@
 #!/bin/sh
 
 read -p "请输入域名:" domain && cd /tmp
-if [ ! -f "lego_v3.8.0_freebsd_amd64.tar.gz" ]; then
+if [ ! -f "lego_v3.8.0_linux_arm64.tar.gz" ]; then
   wget https://github.com/go-acme/lego/releases/download/v3.8.0/lego_v3.8.0_linux_arm64.tar.gz
 fi
-tar zxvf lego_v3.8.0_linux_amd64.tar.gz
+tar zxvf lego_v3.8.0_linux_arm64.tar.gz
 chmod 755 *
 service nginx stop
 ./lego --email="admin@$domain" --domains="$domain" --http -a run
